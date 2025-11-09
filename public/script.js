@@ -7,6 +7,10 @@ formulaire.addEventListener("submit", async (e) => {
   const title = document.getElementById("title").value;
   const description = document.getElementById("description").value;
 
+  if(!title.trim() || title.trim().length == 0) {
+    return;
+  }
+
   const res = await fetch("http://localhost:3000/api/v1/createTodo", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -51,9 +55,7 @@ async function afficherTaches() {
             : ""
         }
         ${
-          !data[i].completed
-            ? `<button onclick="deleteTodo('${data[i].id}')">Supprimer Todo</button>`
-            : ""
+            `<button onclick="deleteTodo('${data[i].id}')">Supprimer Todo</button>`
         }
     `;
     tasksContainer.appendChild(div);
@@ -64,6 +66,7 @@ async function afficherTaches() {
 async function markAsComplete(id) {
   const res = await fetch(`http://localhost:3000/api/v1/markTodoAsComplete/${id}`, {
     method: "PUT",
+    headers: { "Content-Type": "application/json" },
   });
 
   if (!res.ok) {
@@ -78,7 +81,7 @@ async function updateTodo(id) {
 
   do{
     newTitle = prompt('Enter a new title');
-   } while(newTitle.trim() !== null && newTitle.trim() === "")
+   } while(newTitle !== null && newTitle === "")
 
   if(newTitle) {
     newDescription = prompt('Enter new description');
@@ -104,6 +107,7 @@ async function updateTodo(id) {
 async function deleteTodo(id) {
   const res = await fetch(`http://localhost:3000/api/v1/deleteTodo/${id}`, {
     method: "DELETE",
+    headers: { "Content-Type": "application/json" },
   });
 
   if (!res.ok) {
