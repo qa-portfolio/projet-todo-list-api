@@ -32,9 +32,8 @@ jobs:
 
       - name: Lancement de newman
         run: |
-          newman run "./postman/collection.postman_collection.json" \
-          -e "./postman/environnement.postman_environment.json" \
-           --iteration-data "./postman/iteration.json" \
+          newman run "./postman/todo.postman_collection.json" \
+          -e "./postman/todo.postman_environment.json" \
            -r htmlextra \
            --reporter-htmlextra-export "./postman/rapport.html"
       - name: upload HTML test report as artifact
