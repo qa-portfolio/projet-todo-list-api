@@ -31,11 +31,7 @@ jobs:
         run: npm install -g newman newman-reporter-htmlextra
 
       - name: Lancement de newman
-        run: |
-          newman run "./postman/todo.postman_collection.json" \
-          -e "./postman/todo.postman_environment.json" \
-           -r htmlextra \
-           --reporter-htmlextra-export "./postman/rapport.html"
+        run: npm run test:api:report
 
       - name: Upload test report
         if: always()
