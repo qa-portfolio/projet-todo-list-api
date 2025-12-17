@@ -1,4 +1,4 @@
-# Projet démo: application de prises de notes avec Express et une API Rest
+# Projet: application de prises de notes avec Express et une API Rest
 
 ## Fonctionnalités attendues:
 
