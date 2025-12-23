@@ -24,7 +24,7 @@ jobs:
 
       - name: Lancement du serveur
         run: |
-          nohup npm start &> server.log &
+          npm run start
           sleep 5
 
       - name: Installation de newman + HTML extra reporter
@@ -43,4 +43,4 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
-          wait-on: "http://localhost:3000/"
+          start: "npm run cy"
