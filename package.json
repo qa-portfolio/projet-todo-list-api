@@ -8,7 +8,8 @@
     "test:api": "newman run ./postman/todo.postman_collection.json -e ./postman/todo.postman_environment.json",
     "test:api:report": "newman run ./postman/todo.postman_collection.json -e ./postman/todo.postman_environment.json -r htmlextra --reporter-htmlextra-export ./postman/api-report.html",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cy": "npx cypress run"
+    "cy": "npx cypress run",
+    "cy-open": "npx cypress open"
   },
   "repository": {
     "type": "git",
@@ -23,11 +24,13 @@
   },
   "homepage": "https://github.com/consulting-school-portfolio/projet-demo-todo-list-api#readme",
   "dependencies": {
-    "cypress": "^15.8.1",
     "express": "^5.1.0",
-    "nanoid": "^5.1.6",
     "newman": "^6.2.1",
     "newman-reporter-htmlextra": "^1.23.1",
     "nodemon": "^3.1.10"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "step_definitions": "cypress/e2e/stepDef"
   }
 }

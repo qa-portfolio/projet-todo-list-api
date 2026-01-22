@@ -21,11 +21,16 @@
 
 ## Méthodologies de Test
 
-- Tests manuels avec Postman
+### Postman
+
+- Validation complète de l'API avec Postman
 - Tests automatisés avec Newman
-- Intégration continue sur Github
 - Génération de rapports avec Newman
-- Validation complète de l'API
+
+### CI/CD
+
+- Intégration continue sur Github avec Github actions
+- Exécution de la pipeline à chaque ajout de code
 
 ## Installation
 

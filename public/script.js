@@ -37,28 +37,29 @@ async function afficherTaches() {
 
   for (let i = 0; i < data.length; i++) {
     const div = document.createElement("div");
+    div.classList.add('todo-item');
 
     div.innerHTML = `
         <h3>Title: ${data[i].title}</h3>
         ${
           data[i].description
-            ? `<p>Description: ${data[i].description}</p>`
+            ? `<p data-test="todo-description">Description: ${data[i].description}</p>`
             : ""
         } 
-        <p>Status : <strong>${
+        <p data-test="todo-status">Status : <strong>${
           data[i].completed ? "Terminé" : "En cours"
         } </strong></p>
         ${
           !data[i].completed
-            ? `<button onclick="markAsComplete('${data[i].id}')">Terminer la tache</button>`
+            ? `<button data-test="todo-markAsComplete" onclick="markAsComplete('${data[i].id}')">Terminer la tache</button>`
             : ""
         }
         ${
           !data[i].completed
-            ? `<button onclick="updateTodo('${data[i].id}')">Modifier Todo</button>`
+            ? `<button data-test="todo-update" onclick="updateTodo('${data[i].id}')">Modifier Todo</button>`
             : ""
         }
-        ${`<button onclick="deleteTodo('${data[i].id}')">Supprimer Todo</button>`}
+        ${`<button data-test="todo-delete" onclick="deleteTodo('${data[i].id}')">Supprimer Todo</button>`}
     `;
     tasksContainer.appendChild(div);
     formulaire.reset();
